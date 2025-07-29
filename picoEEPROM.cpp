@@ -1,14 +1,14 @@
-#include <EEPROM.h>
+#include "picoEEPROM.h"
 
-class picoEEPROM{
-    public:
+
+
         /*
          * name:    begin function;
          * desc.:   beggining eeprom for RP**** based boards, 4096 is max size of eeprom set by library;
          * input:   size of eeprom in bytes;
          * output:  true if begin was successful, false if something failed;
         */
-        bool begin(int size){
+        bool picoEEPROM::begin(int size){
             //=== Beggining EEPROM ===
             //---- If size is valid init EEPROM ----
             if(size <= 4096 && size > 0){
@@ -26,7 +26,7 @@ class picoEEPROM{
          * input:   eeprom address;
          * output:  0 if everything worked, 1 if error when commiting to eeprom;
         */
-        int putEmptyByte(int eepromByte){
+        int picoEEPROM::putEmptyByte(int eepromByte){
             //=== Declaring variables ===
             byte emptyByte = 0b00000000;
             
@@ -44,7 +44,7 @@ class picoEEPROM{
          * input:   number of empty bytes to put to eeprom, starting address;
          * output:  0 if everything worked, 1 if error whrn commiting to eeprom;
         */
-        int putEmptyBytes(int len, int startingEepromByte){
+        int picoEEPROM::putEmptyBytes(int len, int startingEepromByte){
             //=== Declarign variables ===
             byte emptyByte = 0b00000000;
             int addresses[len];
@@ -71,7 +71,7 @@ class picoEEPROM{
          * input:   value of int to put into eeprom, starting address of eeprom;
          * output:  0 if everything worked, 1 if number is not int, 2 if eeprom commit failed;
         */
-        int putInt(int value, int startingEepromByte){
+        int picoEEPROM::putInt(int value, int startingEepromByte){
             //=== Declaring variables ===
             int addresses[4];
             byte bytes[4];
@@ -101,7 +101,7 @@ class picoEEPROM{
          * input:   eeprom address;
          * output:  INT from eeprom;
         */
-        int getInt(int startingEepromByte){
+        int picoEEPROM::getInt(int startingEepromByte){
             //=== Declaring variables ===
             int addresses[4], numFromEeprom;
             byte bytes[4];
@@ -128,9 +128,9 @@ class picoEEPROM{
          * name:    putString20 function;
          * desc.:   saving max 20 char string into eeprom;
          * input:   string data and starting eeprom address;
-         * output:  0 if everything worked, 1 if string size is too large, 2 if eeprom commit failed;
+         * output:  0 if everything worked, 1 if string size is to large, 2 if eeprom commit failed;
         */
-        int putString20(String data, int startingEepromByte){
+        int picoEEPROM::putString20(String data, int startingEepromByte){
             //=== Declaring variables ===
             int dataSize, addresses[20];
             char individualChars[20];
@@ -167,7 +167,7 @@ class picoEEPROM{
          * input:   eeprom starting address;
          * output:  read string;
         */
-        String getString20(int startingEepromByte){
+        String picoEEPROM::getString20(int startingEepromByte){
             //=== Declaring variables ===
             int addresses[20];
             char individualChars[20];
@@ -198,7 +198,7 @@ class picoEEPROM{
          * input:   string data and starting address of eeprom;
          * output:  returns string's length if everything worked, 1 if string is too large, 2 if eeprom commit failed;
         */
-        int putString(String data, int startingEepromByte){
+        int picoEEPROM::putString(String data, int startingEepromByte){
             //=== Reading length of string ===
             int dataSize = data.length();
 
@@ -236,7 +236,7 @@ class picoEEPROM{
          * input:   string's length, eeprom starting address;
          * output:  read string;
         */
-        String getString(int dataSize, int startingEepromByte){
+        String picoEEPROM::getString(int dataSize, int startingEepromByte){
             //=== Declaring variables ===
             int addresses[dataSize];
             char individualChars[dataSize];
@@ -270,7 +270,7 @@ class picoEEPROM{
          * input:   boolean value, bit, eeprom address;
          * output:  0 if everything worked, 1 if bit is out of range, 2 if eeprom commit failed;
         */
-        int putBool(bool value, int bit, int eepromByte){
+        int picoEEPROM::putBool(bool value, int bit, int eepromByte){
             //=== Declaring variables ===
             byte data, originalByte;
 
@@ -300,7 +300,7 @@ class picoEEPROM{
          * input:   bit, eeprom address;
          * output:  boolean value;
         */
-        bool getBool(int bit, int eepromByte){
+        bool picoEEPROM::getBool(int bit, int eepromByte){
             //=== Declaring variables ===
             bool value;
             byte data;
@@ -314,20 +314,3 @@ class picoEEPROM{
             //=== Returning it ===
             return value;
         }
-};
-
-picoEEPROM picoEEPROM;
-
-void setup() {
-    Serial.begin(9600);
-
-    for(int d=0; d<10; d++){
-        Serial.println(".");
-        delay(500);
-    }
-    picoEEPROM.begin(4096);
-    picoEEPROM.getString(20, 0);
-}
-
-void loop(){
-}
