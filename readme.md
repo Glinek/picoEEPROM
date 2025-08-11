@@ -89,7 +89,7 @@ String secondStringRead = picoEEPROM.getString(stringLength, 27); //reads string
 ```
 
 # License
-This library is licensed under Cerative Commons CC BY 4.0 
+This library is licensed under Cerative Commons CC BY 4.0 avaiable [here](license)
    
 **You are free to:**    
 - Share — copy and redistribute the material in any medium or format for any purpose, even commercially.    
