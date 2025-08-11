@@ -87,3 +87,6 @@ int stringLength = picoEEPROM.putString("this string is longer than 20 character
 ```cpp
 String secondStringRead = picoEEPROM.getString(stringLength, 27); //reads string stored at addresses 27 to 27+stringLength
 ```
+
+# License
+# Author
