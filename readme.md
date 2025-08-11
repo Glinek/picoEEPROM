@@ -1,3 +1,4 @@
+![banner](docs/github-header-banner.png)
 # picoEEPROM library for Arduino-Pico boards
 This library was created to simplify the process of saving data into an EEPROM for boards from [Arduino-Pico by earlephilhower](https://github.com/earlephilhower/arduino-pico). This library WILL NOT WORK with any other boards!
 
