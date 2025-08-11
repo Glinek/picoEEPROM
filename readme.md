@@ -4,6 +4,7 @@ This library was created to simplify the process of saving data into an EEPROM f
 # Instalation
 There are two ways to install this library:
 1. Download this repository as .zip and include it using Arduino IDE (Sketch>>Include Library>>Add .ZIP Library...)
+![image](docs/includingLib.png)
 2. **NOT POSSIBLE YET** Add this library from Arduino IDE's library menager by typing *picoEEPROM* and selecting *picoEEPROM by Glinek* 
 
 # Documentation
