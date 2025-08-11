@@ -2,6 +2,9 @@
 This library was created to simplify the process of saving data into an EEPROM for boards from [Arduino-Pico by earlephilhower](https://github.com/earlephilhower/arduino-pico). This library WILL NOT WORK with any other boards!
 
 # Instalation
+There are two ways to install this library:
+1. Download this repository as .zip and include it using Arduino IDE (Sketch>>Include Library>>Add .ZIP Library...)
+2. **NOT POSSIBLE YET** Add this library from Arduino IDE's library menager by typing *picoEEPROM* and selecting *picoEEPROM by Glinek* 
 
 # Documentation
 This library is based on EEPROM.h library from Arduino-Pico, max allowed EEPROM size 4096 bytes, in this documentation each byte is going to be refared as address because we need to specify at which byte we will save the data.
