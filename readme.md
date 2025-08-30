@@ -1,11 +1,12 @@
-![banner](docs/github-header-banner.png)
+![banner](https://github.com/user-attachments/assets/1bfe8764-16ca-4731-a233-d45c5635e59d)
 # picoEEPROM library for Arduino-Pico boards
 This library was created to simplify the process of saving data into an EEPROM for boards from [Arduino-Pico by earlephilhower](https://github.com/earlephilhower/arduino-pico). This library WILL NOT WORK with any other boards!
 
 # Instalation
 There are two ways to install this library:
 1. Download this repository as .zip and include it using Arduino IDE (Sketch>>Include Library>>Add .ZIP Library...)
-![image](docs/includingLib.png)
+
+![image](https://github.com/user-attachments/assets/76835efe-9595-47fe-bc95-d909f662d4a9)
 2. **NOT POSSIBLE YET** Add this library from Arduino IDE's library manager by typing *picoEEPROM* and selecting *picoEEPROM by Glinek*
 
 # Documentation
@@ -106,6 +107,7 @@ No warranties are given. The license may not give you all of the permissions nec
 
 # Author
 This library has been created by Szymon *Glinek* Glinka to help with development of custom firmware for PicoCalc
+
 
 
 
