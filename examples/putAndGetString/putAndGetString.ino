@@ -22,6 +22,14 @@ void setup() {
         Serial.print(".");
     }
 
+    //=== Beggining EEPROM ===
+    /*
+     * begin function takes one argument, size of eeprom in bytes. You can declare it
+     * to have a max size of 4096 bytes. If gives size is invalid, this function will 
+     * return false, otherwise it will return true.
+    */
+    picoEEPROM.begin(4096);
+
     //=== Put string ===
     /*
      * Example below puts string into eeprom using putString function so the one that is
