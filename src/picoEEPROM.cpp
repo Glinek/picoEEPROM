@@ -277,16 +277,19 @@
             //=== Saving bool to eeprom ===
             if(bit < 0 || bit > 7) return 1;
             else{
-                //---- Read old eeprom byte and add to it changed bit ----
-                originalByte = EEPROM.read(eepromByte);
-                // |
-                //---- put bool into a specified bit of eeprom byte ----
-                originalByte = value << 7-bit;
-                // |
-                //---- Write byte to eeprom ----
-                EEPROM.write(eepromByte, originalByte);
-                // |
-                //---- Commit eeprom chages ----
+                if(value){
+                    originalByte = EEPROM.read(eepromByte);
+                    data = 1 << 7-bit;
+                    output = originalByte | data;
+                }
+                else{
+                    originalByte = EEPROM.read(eepromByte);
+                    data = 1 << 7-bit;
+                    notData = ~data;
+                    output = originalByte & notData;
+                }
+                EEPROM.write(eepromByte, output);
+
                 if (EEPROM.commit()) return 0; 
                 else return 2;
             }
@@ -308,7 +311,7 @@
             data = EEPROM.read(eepromByte);
 
             //=== Converting data to bool ===
-            value = data >> 7-bit;
+            value = (data >> 7-bit) & 1;
 
             //=== Returning it ===
             return value;
