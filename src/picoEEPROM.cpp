@@ -272,7 +272,7 @@
         */
         int picoEEPROM::putBool(bool value, int bit, int eepromByte){
             //=== Declaring variables ===
-            byte data, originalByte;
+            byte data, originalByte, notData, output;
 
             //=== Saving bool to eeprom ===
             if(bit < 0 || bit > 7) return 1;
