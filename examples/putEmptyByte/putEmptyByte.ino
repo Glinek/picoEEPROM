@@ -13,7 +13,7 @@
 #include <picoEEPROM.h>
 
 //=== Create picoEEPROM object ===
-picoEEPROM picoEEPROM;
+picoEEPROM myEEPROM;
 
 void setup() {
     //=== Initialize serial connection ===
@@ -28,7 +28,7 @@ void setup() {
      * to have a max size of 4096 bytes. If gives size is invalid, this function will 
      * return false, otherwise it will return true.
     */
-    picoEEPROM.begin(4096);
+    myEEPROM.begin(4096);
 
     //=== Putting one empty byte into EEPROM ===
     /*
@@ -36,7 +36,7 @@ void setup() {
      * at this address. This function returns 0 if everything worked and 1 if commiting to
      * eeprom failed.
     */
-    picoEEPROM.putEmptyByte(0);
+    myEEPROM.putEmptyByte(0);
 
     //=== Putting multiple empty bytes into EEPROM ===
     /*
@@ -44,7 +44,7 @@ void setup() {
      * which this function will start placing empty bytes. putEmptyBytes returns 0 if everything
      * worked and 1 if commiting to eeprom failed
     */
-    picoEEPROM.putEmptyBytes(64, 1);
+    myEEPROM.putEmptyBytes(64, 1);
 }
 
 void loop() {

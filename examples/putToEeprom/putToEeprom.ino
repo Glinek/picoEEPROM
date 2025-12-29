@@ -13,7 +13,7 @@
 #include <picoEEPROM.h>
 
 //=== Create picoEEPROM object ===
-picoEEPROM picoEEPROM;
+picoEEPROM myEEPROM;
 
 void setup() {
     //=== Initialize serial connection ===
@@ -28,7 +28,7 @@ void setup() {
      * to have a max size of 4096 bytes. If gives size is invalid, this function will 
      * return false, otherwise it will return true.
     */
-    picoEEPROM.begin(4096);
+    myEEPROM.begin(4096);
 
     //=== Saving int into EEPROM ===
     /*
@@ -39,7 +39,7 @@ void setup() {
      * and will end at address 3 so next value should be saved at address 4. This function returns
      * 0 if everything worked, 1 if int is invalind and 2 if commiting to eeprom failed.
     */
-    picoEEPROM.putInt(37, 0);
+    myEEPROM.putInt(37, 0);
     
     //=== Saving bool into EEPROM ===
     /*
@@ -51,7 +51,7 @@ void setup() {
      * bits starting at 0 and ending at 7. This function outputs 0 if everything worked, 1 if 
      * bit address is out of range and 2 if commiting to eeprom failed
     */
-    picoEEPROM.putBool(true, 0, 4);
+    myEEPROM.putBool(true, 0, 4);
     
     //=== Saving string20 into EEPROM ===
     /*
@@ -62,7 +62,7 @@ void setup() {
      * 0 if everything worked, 1 if string length is too large, 2 if commiting to eeprom failed.
      * This function works by converting characters to ASCII numbers, not every character might work!
     */
-    picoEEPROM.putString20("picoEEPROM", 5);
+    myEEPROM.putString20("picoEEPROM", 5);
     
     //=== Saving string into EEPROM ===
     /*
@@ -72,7 +72,7 @@ void setup() {
      * (usefull for getString), 1 if string is larger than 4096 characters, 2 if commiting to eeprom failed.
      * This function works by converting characters to ASCII numbers, not every character might work!
     */
-    picoEEPROM.putString("Strings longer than 20 can be put here", 25);
+    myEEPROM.putString("Strings longer than 20 can be put here", 25);
 
 }
 

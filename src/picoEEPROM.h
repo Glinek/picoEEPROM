@@ -5,6 +5,7 @@
 
     class picoEEPROM{
         public:
+            picoEEPROM();
             bool begin(int size);
             int putEmptyByte(int eepromByte);
             int putEmptyBytes(int len, int startingEepromByte);

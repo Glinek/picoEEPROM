@@ -13,7 +13,7 @@
 #include <picoEEPROM.h>
 
 //=== Create picoEEPROM object ===
-picoEEPROM picoEEPROM;
+picoEEPROM myEEPROM;
 
 void setup() {
     //=== Initialize serial connection ===
@@ -28,14 +28,14 @@ void setup() {
      * to have a max size of 4096 bytes. If gives size is invalid, this function will 
      * return false, otherwise it will return true.
     */
-    picoEEPROM.begin(4096);
+    myEEPROM.begin(4096);
 
     //=== Put string ===
     /*
      * Example below puts string into eeprom using putString function so the one that is
      * dynamic and returns length of inputed string.
     */
-    int length = picoEEPROM.putString("Longer...ish string", 0);
+    int length = myEEPROM.putString("Longer...ish string", 0);
     Serial.print("Inputed string's length: ");
     Serial.println(length);
 
@@ -44,7 +44,7 @@ void setup() {
      * Example below read's string from eeprom using getString value, that's why additional to
      * eeprom address there is length of string inputed.
     */
-    String eepromString = picoEEPROM.getString(length, 0);
+    String eepromString = myEEPROM.getString(length, 0);
     Serial.print("String read from EEPROM: ");
     Serial.println(eepromString);
 }

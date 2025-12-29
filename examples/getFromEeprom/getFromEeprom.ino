@@ -13,7 +13,7 @@
 #include <picoEEPROM.h>
 
 //=== Create picoEEPROM object ===
-picoEEPROM picoEEPROM;
+picoEEPROM myEEPROM;
 
 void setup() {
     //=== Initialize serial connection ===
@@ -28,13 +28,13 @@ void setup() {
      * to have a max size of 4096 bytes. If gives size is invalid, this function will 
      * return false, otherwise it will return true.
     */
-    picoEEPROM.begin(4096);
+    myEEPROM.begin(4096);
 
     //=== Reading int from EEPROM ===
     /*
      * getInt function takes one argument, eeprom address and returns int read from eeprom.
     */
-    int i = picoEEPROM.getInt(0);
+    int i = myEEPROM.getInt(0);
 
     //=== Reading bool from EEPROM ===
     /*
@@ -43,21 +43,21 @@ void setup() {
      * at which bit of selected cell is your bool value stored. getBool return boolean value 
      * read from eeprom.
     */
-    bool b = picoEEPROM.getBool(0, 4);
+    bool b = myEEPROM.getBool(0, 4);
     
     //=== Reading string20 from EEPROM ===
     /*
      * getString20 takes one argument, eeprom address and returnes string stored starting 
      * at given address.
     */
-    String s20 = picoEEPROM.getString20(5);
+    String s20 = myEEPROM.getString20(5);
 
     //=== Reading string from EEPROM ===
     /*
      * getString takes 2 arguments, size of string (can be obtained using putString function) 
      * and eeprom address. This function returns string stored in eeprom starting at given address.
     */
-    String s = picoEEPROM.getString(40, 25);
+    String s = myEEPROM.getString(40, 25);
 }
 
 void loop() {
