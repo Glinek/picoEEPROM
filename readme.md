@@ -7,7 +7,7 @@ There are two ways to install this library:
 1. Download this repository as .zip and include it using Arduino IDE (Sketch>>Include Library>>Add .ZIP Library...)
 ![image](https://github.com/user-attachments/assets/76835efe-9595-47fe-bc95-d909f662d4a9)    
 
-2. Add this library from Arduino IDE's library manager by typing *picoEEPROM* and selecting *picoEEPROM by Glinek*
+2. Add this library from Arduino IDE's library manager by typing *picoEEPROM* and selecting *picoEEPROM by Szymon Glinka*
 
 # Documentation
 This library is based on EEPROM.h library from Arduino-Pico, max allowed EEPROM size 4096 bytes, in this documentation each byte is going to be referred to as address because we need to specify at which byte we will save the data.
@@ -107,6 +107,7 @@ No warranties are given. The license may not give you all of the permissions nec
 
 # Author
 This library has been created by Szymon *Glinek* Glinka to help with development of custom firmware for PicoCalc
+
 
 
 
